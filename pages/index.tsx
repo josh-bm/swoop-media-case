@@ -91,10 +91,6 @@ const Wrapper = styled.div`
 const Title = styled.div`
   text-align: center;
   margin: 0 0 3em 0;
-
-  @media (min-width: 768px) {
-    margin: 0 0 3em 0;
-  }
 `;
 
 const H1 = styled.h1`
@@ -115,6 +111,10 @@ const H2 = styled.h2`
   }
 `;
 
+const PackSection = styled.section`
+  text-align: center;
+`;
+
 const H5 = styled.h5`
   margin: 0;
   font-size: 1.5em;
@@ -132,8 +132,6 @@ const P = styled.p`
     font-size: 1.5em;
   }
 `;
-
-const PackSection = styled.section``;
 
 const FlexBox = styled.div`
   @media (min-width: 768px) {
@@ -181,6 +179,7 @@ const ClaimButton = styled.button`
   font-size: 1.5em;
   display: flex;
   align-items: center;
+  margin: 0 auto;
   margin-bottom: 4em;
 
   @media (min-width: 768px) {
