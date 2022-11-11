@@ -82,10 +82,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return { props: { data } };
 };
 
-// To Access database: ./pocketbase serve
-// email: joshuabacuriomercado@gmail.com
-// pw: swoopmedia
-
 //Styled Components
 
 const Wrapper = styled.div`
@@ -94,7 +90,7 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   text-align: center;
-  margin: 2em 0 5em 0;
+  margin: 0 0 3em 0;
 
   @media (min-width: 768px) {
     margin: 2em 0 3em 0;

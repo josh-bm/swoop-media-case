@@ -55,6 +55,7 @@ const NavBar = styled.nav`
   bottom: 0;
   margin: 0 auto;
   border-top: 1px solid var(--light-blue-line);
+  background-color: var(--dark-blue-bg);
 
   @media (min-width: 768px) {
     position: initial;
