@@ -133,19 +133,19 @@ const P = styled.p`
   }
 `;
 
-const PackSection = styled.section`
-  padding-left: 1em;
-`;
+const PackSection = styled.section``;
 
-const FlexBox = styled.div`
-  display: flex;
-`;
+const FlexBox = styled.div``;
 
 const Figure = styled.figure`
-  width: 15%;
-  margin: 0;
+  display: flex;
+  margin: 0 auto 2em auto;
+  gap: 1em;
+  width: 65%;
+
   @media (min-width: 768px) {
     width: 7.5%;
+    margin: 0;
   }
 `;
 
@@ -168,6 +168,7 @@ const ClaimButton = styled.button`
   font-size: 1.5em;
   display: flex;
   align-items: center;
+  margin-bottom: 4em;
 
   :hover {
     background-color: var(--darker-yellow-bg);

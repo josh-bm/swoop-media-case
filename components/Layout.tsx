@@ -31,6 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 const FlexBox = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 5em;
 
   @media (min-width: 768px) {
     nav {
