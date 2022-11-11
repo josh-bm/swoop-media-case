@@ -66,7 +66,6 @@ const NavBar = styled.nav`
 
 const NavLinks = styled.a`
   text-decoration: none;
-  margin-right: 10px;
   color: var(--mustard-yellow-text);
   display: flex;
   flex-direction: column;
