@@ -82,6 +82,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return { props: { data } };
 };
 
+// To Access database: ./pocketbase serve
+// email: joshuabacuriomercado@gmail.com
+// pw: swoopmedia
+
 //Styled Components
 
 const Wrapper = styled.div`
@@ -93,7 +97,7 @@ const Title = styled.div`
   margin: 2em 0 5em 0;
 
   @media (min-width: 768px) {
-    margin: 0 0 1em 0;
+    margin: 2em 0 3em 0;
   }
 `;
 
@@ -124,7 +128,7 @@ const H5 = styled.h5`
 `;
 
 const P = styled.p`
-  margin: 0.3em 0;
+  margin: 0;
   font-size: 1.2em;
   color: var(--gray-text);
 
@@ -145,7 +149,7 @@ const Figure = styled.figure`
   width: 15%;
   margin: 0;
   @media (min-width: 768px) {
-    width: 10%;
+    width: 7.5%;
   }
 `;
 
