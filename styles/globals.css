@@ -1,14 +1,26 @@
-body{
-    background-color: #111823;
-    color:white;
-    margin:0 auto;
-    border:solid;
-    padding:1em;
+:root{
+    --dark-blue-bg:#111823;
+    --light-blue-line:#1a2433;
+    --gray-text:#606064;
+    --dark-gray-line:#3f434f;
+    --mustard-yellow-text:#ceac23;
+    --yellow-bg:#fefe95;
+    --darker-yellow-bg:#efef8b;
+    --yellow-text:#a65613;
+    
 }
 
-@media (min-width:801px) { 
+body{
+    background-color: var(--dark-blue-bg);
+    color:white;
+    margin:0 auto;
+    line-height: 1.4;
+}
+
+@media (min-width:768px) { 
     /* tablet, landscape iPad, lo-res laptops ands desktops */ 
     body{
         width:75%;
     }
 }
+

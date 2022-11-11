@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
 import { GetServerSideProps } from "next";
+import Pluralize from "pluralize";
 
 interface IndexPageProps {
   data: {
@@ -14,64 +15,7 @@ interface IndexPageProps {
     }[];
   };
 }
-
-const Title = styled.div`
-  text-align: center;
-  margin: 2em;
-`;
-
-const H1 = styled.h1`
-  margin: 0;
-  font-size: 3.25em;
-`;
-
-const H2 = styled.h2`
-  margin: 0;
-  font-size: 1.5em;
-`;
-
-const H5 = styled.h5`
-  margin: 0;
-  font-size: 1em;
-`;
-
-const P = styled.p`
-  margin: 0;
-  font-size: 0.9em;
-  color: #2f3440;
-`;
-
-const PackSection = styled.section`
-  padding-left: 1em;
-`;
-
-const Flexbox = styled.div`
-  display: flex;
-`;
-
-const Grid = styled.div`
-  display: grid;
-`;
-
-const Border = styled.div`
-  border: solid white 1px;
-`;
-
-const Figure = styled.figure`
-  width: 20%;
-  margin: 0;
-`;
-
-const Img = styled.img`
-  width: 100%;
-`;
-
-const HR = styled.hr`
-  background-color: #2f3440;
-`;
-
 export default function Home({ data }: IndexPageProps) {
-  console.log(data);
   return (
     <div className={styles.container}>
       <Head>
@@ -79,7 +23,7 @@ export default function Home({ data }: IndexPageProps) {
         <meta name="description" content="Redeem your packs" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
+      <Wrapper>
         <Title>
           <H1>My Inbox</H1>
           <H2>Redeem your packs</H2>
@@ -100,7 +44,7 @@ export default function Home({ data }: IndexPageProps) {
               image: string;
             }) => (
               <div key={id}>
-                <Flexbox>
+                <FlexBox>
                   <Figure>
                     <Img
                       src={`http://127.0.0.1:8090/api/files/e3iiocjxrn3afys/${id}/${image}`}
@@ -109,17 +53,20 @@ export default function Home({ data }: IndexPageProps) {
                   </Figure>
 
                   <PackSection>
-                    <H5>You have received {amount} new packs</H5>
+                    <H5>
+                      You have received {amount} {Pluralize("pack", amount)}
+                    </H5>
                     <P>{title}</P>
                     <P>USD ${price}</P>
                   </PackSection>
-                </Flexbox>
+                </FlexBox>
                 <HR />
               </div>
             )
           )}
+          <ClaimButton>Claim All</ClaimButton>
         </div>
-      </div>
+      </Wrapper>
     </div>
   );
 }
@@ -132,3 +79,91 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return { props: { data } };
 };
+
+const Wrapper = styled.div`
+  padding: 1em;
+`;
+
+const Title = styled.div`
+  text-align: center;
+  margin: 2em 0 5em 0;
+
+  @media (min-width: 768px) {
+    margin: 0 0 1em 0;
+  }
+`;
+
+const H1 = styled.h1`
+  margin: 0;
+  font-size: 3.25em;
+
+  @media (min-width: 768px) {
+    font-size: 4em;
+  }
+`;
+
+const H2 = styled.h2`
+  margin: 0;
+  font-size: 1.5em;
+
+  @media (min-width: 768px) {
+    font-size: 1.75em;
+  }
+`;
+
+const H5 = styled.h5`
+  margin: 0;
+  font-size: 1.5em;
+  @media (min-width: 768px) {
+    font-size: 1.75em;
+  }
+`;
+
+const P = styled.p`
+  margin: 0.3em 0;
+  font-size: 1.2em;
+  color: var(--gray-text);
+
+  @media (min-width: 768px) {
+    font-size: 1.5em;
+  }
+`;
+
+const PackSection = styled.section`
+  padding-left: 1em;
+`;
+
+const FlexBox = styled.div`
+  display: flex;
+`;
+
+const Figure = styled.figure`
+  width: 15%;
+  margin: 0;
+  @media (min-width: 768px) {
+    width: 10%;
+  }
+`;
+
+const Img = styled.img`
+  width: 100%;
+`;
+
+const HR = styled.hr`
+  background-color: var(--dark-gray-line);
+  margin: 2em 0;
+`;
+
+const ClaimButton = styled.button`
+  background-color: var(--yellow-bg);
+  color: var(--yellow-text);
+  border: none;
+  border-radius: 5px;
+  padding: 0.3em 0.5em;
+  cursor: pointer;
+  font-size: 1.5em;
+
+  :hover {
+    background-color: var(--darker-yellow-bg);
+  }
+`;
