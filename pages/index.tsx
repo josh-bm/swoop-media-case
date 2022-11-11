@@ -71,6 +71,8 @@ export default function Home({ data }: IndexPageProps) {
   );
 }
 
+// Fetch Pocketbase
+
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(
     "http://127.0.0.1:8090/api/collections/packs/records"
@@ -79,6 +81,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return { props: { data } };
 };
+
+//Styled Components
 
 const Wrapper = styled.div`
   padding: 1em;

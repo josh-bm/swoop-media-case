@@ -18,7 +18,6 @@ body{
 }
 
 @media (min-width:768px) { 
-    /* tablet, landscape iPad, lo-res laptops ands desktops */ 
     body{
         width:75%;
     }
