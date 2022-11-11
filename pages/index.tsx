@@ -111,6 +111,13 @@ const H2 = styled.h2`
   }
 `;
 
+const FlexBox = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 1em;
+  }
+`;
+
 const PackSection = styled.section`
   text-align: center;
 `;
@@ -130,13 +137,6 @@ const P = styled.p`
 
   @media (min-width: 768px) {
     font-size: 1.5em;
-  }
-`;
-
-const FlexBox = styled.div`
-  @media (min-width: 768px) {
-    display: flex;
-    gap: 1em;
   }
 `;
 
