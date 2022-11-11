@@ -85,7 +85,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 //Styled Components
 
 const Wrapper = styled.div`
-  padding: 1em;
+  padding: 1em 3em;
 `;
 
 const Title = styled.div`
@@ -136,19 +136,29 @@ const P = styled.p`
 const PackSection = styled.section``;
 
 const FlexBox = styled.div`
-  display: flex;
-  gap: 1em;
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 1em;
+  }
 `;
 
 const Figure = styled.figure`
   display: flex;
   margin: 0 auto 2em auto;
   gap: 1em;
-  width: 65%;
+  width: 30%;
+
+  @media (min-width: 425px) {
+    width: 20%;
+  }
 
   @media (min-width: 768px) {
-    width: 10%;
+    width: 20%;
     margin: 0;
+  }
+
+  @media (min-width: 1080px) {
+    width: 15%;
   }
 `;
 
