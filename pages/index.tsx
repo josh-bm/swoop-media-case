@@ -166,6 +166,8 @@ const ClaimButton = styled.button`
   padding: 0.3em 0.5em;
   cursor: pointer;
   font-size: 1.5em;
+  display: flex;
+  align-items: center;
 
   :hover {
     background-color: var(--darker-yellow-bg);
