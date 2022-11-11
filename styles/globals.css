@@ -1,4 +1,14 @@
 body{
     background-color: #111823;
-    color:white
+    color:white;
+    margin:0 auto;
+    border:solid;
+    padding:1em;
+}
+
+@media (min-width:801px) { 
+    /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+    body{
+        width:75%;
+    }
 }

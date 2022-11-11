@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import styled from "styled-components";
 import { GetServerSideProps } from "next";
 
 interface IndexPageProps {
@@ -10,9 +10,65 @@ interface IndexPageProps {
       title: string;
       price: number;
       amount: number;
+      image: string;
     }[];
   };
 }
+
+const Title = styled.div`
+  text-align: center;
+  margin: 2em;
+`;
+
+const H1 = styled.h1`
+  margin: 0;
+  font-size: 3.25em;
+`;
+
+const H2 = styled.h2`
+  margin: 0;
+  font-size: 1.5em;
+`;
+
+const H5 = styled.h5`
+  margin: 0;
+  font-size: 1em;
+`;
+
+const P = styled.p`
+  margin: 0;
+  font-size: 0.9em;
+  color: #2f3440;
+`;
+
+const PackSection = styled.section`
+  padding-left: 1em;
+`;
+
+const Flexbox = styled.div`
+  display: flex;
+`;
+
+const Grid = styled.div`
+  display: grid;
+`;
+
+const Border = styled.div`
+  border: solid white 1px;
+`;
+
+const Figure = styled.figure`
+  width: 20%;
+  margin: 0;
+`;
+
+const Img = styled.img`
+  width: 100%;
+`;
+
+const HR = styled.hr`
+  background-color: #2f3440;
+`;
 
 export default function Home({ data }: IndexPageProps) {
   console.log(data);
@@ -24,8 +80,10 @@ export default function Home({ data }: IndexPageProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <h1>My Inbox</h1>
-        <h2>Redeem your packs</h2>
+        <Title>
+          <H1>My Inbox</H1>
+          <H2>Redeem your packs</H2>
+        </Title>
         <div>
           {data.items.map(
             ({
@@ -33,60 +91,35 @@ export default function Home({ data }: IndexPageProps) {
               title,
               price,
               amount,
+              image,
             }: {
               id: string;
               title: string;
               price: number;
               amount: number;
+              image: string;
             }) => (
-              <li key={id}>{title}</li>
+              <div key={id}>
+                <Flexbox>
+                  <Figure>
+                    <Img
+                      src={`http://127.0.0.1:8090/api/files/e3iiocjxrn3afys/${id}/${image}`}
+                      alt="{title}"
+                    />
+                  </Figure>
+
+                  <PackSection>
+                    <H5>You have received {amount} new packs</H5>
+                    <P>{title}</P>
+                    <P>USD ${price}</P>
+                  </PackSection>
+                </Flexbox>
+                <HR />
+              </div>
             )
           )}
         </div>
       </div>
-
-      {/* <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main> */}
     </div>
   );
 }
