@@ -93,7 +93,7 @@ const Title = styled.div`
   margin: 0 0 3em 0;
 
   @media (min-width: 768px) {
-    margin: 2em 0 3em 0;
+    margin: 0 0 3em 0;
   }
 `;
 
@@ -135,7 +135,10 @@ const P = styled.p`
 
 const PackSection = styled.section``;
 
-const FlexBox = styled.div``;
+const FlexBox = styled.div`
+  display: flex;
+  gap: 1em;
+`;
 
 const Figure = styled.figure`
   display: flex;
@@ -144,7 +147,7 @@ const Figure = styled.figure`
   width: 65%;
 
   @media (min-width: 768px) {
-    width: 7.5%;
+    width: 10%;
     margin: 0;
   }
 `;
@@ -169,6 +172,10 @@ const ClaimButton = styled.button`
   display: flex;
   align-items: center;
   margin-bottom: 4em;
+
+  @media (min-width: 768px) {
+    margin: 0;
+  }
 
   :hover {
     background-color: var(--darker-yellow-bg);
