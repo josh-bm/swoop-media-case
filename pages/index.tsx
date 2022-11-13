@@ -120,6 +120,10 @@ const FlexBox = styled.div`
 
 const PackSection = styled.section`
   text-align: center;
+
+  @media (min-width: 768px) {
+    text-align: initial;
+  }
 `;
 
 const H5 = styled.h5`
