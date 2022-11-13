@@ -1,5 +1,4 @@
 // Styles
-import "../styles/normalize.css";
 import "../styles/globals.css";
 import localFont from "@next/font/local";
 const myFont = localFont({ src: "../fonts/Pixelar-Regular-W01-Regular.ttf" });
