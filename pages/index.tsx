@@ -4,6 +4,10 @@ import styled from "styled-components";
 import { GetServerSideProps } from "next";
 import Pluralize from "pluralize";
 
+// Font for button fix
+import localFont from "@next/font/local";
+const myFont = localFont({ src: "../fonts/Pixelar-Regular-W01-Regular.ttf" });
+
 type Packs = {
   id: number;
   title: string;
@@ -58,7 +62,7 @@ export default function Home({ packs }: { packs: Packs[] }) {
               </div>
             )
           )}
-          <ClaimButton>Claim All</ClaimButton>
+          <ClaimButton className={myFont.className}>Claim All</ClaimButton>
         </div>
       </Wrapper>
     </div>
