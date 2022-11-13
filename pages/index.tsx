@@ -29,7 +29,7 @@ export default function Home({ data }: IndexPageProps) {
           <H2>Redeem your packs</H2>
         </Title>
         <div>
-          {data.items.map(
+          {data.items?.map(
             ({
               id,
               title,
