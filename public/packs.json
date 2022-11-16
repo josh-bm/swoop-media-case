@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "title": "Basic Beast Starter Pack",
+        "amount": 4,
+        "price": 40,
+        "image": "starter.png"
+},
+
+{
+    "id": 2,
+    "title": "Cursed Black Pack",
+    "amount": 2,
+    "price": 600,
+    "image": "cursed.png"
+},
+
+{
+    "id": 3,
+    "title": "Shiny Gold",
+    "amount": 1,
+    "price": 999,
+    "image": "shiny.png" 
+}
+]

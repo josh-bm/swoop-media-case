@@ -4,18 +4,19 @@ import styled from "styled-components";
 import { GetServerSideProps } from "next";
 import Pluralize from "pluralize";
 
-interface IndexPageProps {
-  data: {
-    items: {
-      id: string;
-      title: string;
-      price: number;
-      amount: number;
-      image: string;
-    }[];
-  };
-}
-export default function Home({ data }: IndexPageProps) {
+// Font for button fix
+import localFont from "@next/font/local";
+const myFont = localFont({ src: "../fonts/Pixelar-Regular-W01-Regular.ttf" });
+
+type Packs = {
+  id: number;
+  title: string;
+  price: number;
+  amount: number;
+  image: string;
+};
+
+export default function Home({ packs }: { packs: Packs[] }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -29,7 +30,7 @@ export default function Home({ data }: IndexPageProps) {
           <H2>Redeem your packs</H2>
         </Title>
         <div>
-          {data.items?.map(
+          {packs?.map(
             ({
               id,
               title,
@@ -37,7 +38,7 @@ export default function Home({ data }: IndexPageProps) {
               amount,
               image,
             }: {
-              id: string;
+              id: number;
               title: string;
               price: number;
               amount: number;
@@ -46,10 +47,7 @@ export default function Home({ data }: IndexPageProps) {
               <div key={id}>
                 <FlexBox>
                   <Figure>
-                    <Img
-                      src={`http://127.0.0.1:8090/api/files/e3iiocjxrn3afys/${id}/${image}`}
-                      alt="{title}"
-                    />
+                    <Img src={`http://localhost:3000/${image}`} alt="{title}" />
                   </Figure>
 
                   <PackSection>
@@ -64,22 +62,19 @@ export default function Home({ data }: IndexPageProps) {
               </div>
             )
           )}
-          <ClaimButton>Claim All</ClaimButton>
+          <ClaimButton className={myFont.className}>Claim All</ClaimButton>
         </div>
       </Wrapper>
     </div>
   );
 }
 
-// Fetch Pocketbase
-
+// Fetch json
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(
-    "http://127.0.0.1:8090/api/collections/packs/records"
-  );
-  const data = await res.json();
+  const res = await fetch("http://localhost:3000/packs.json");
+  const packs = await res.json();
 
-  return { props: { data } };
+  return { props: { packs } };
 };
 
 //Styled Components
