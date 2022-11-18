@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import Pluralize from "pluralize";
 
 // Font for button fix
@@ -70,7 +70,7 @@ export default function Home({ packs }: { packs: Packs[] }) {
 }
 
 // Fetch json
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("http://localhost:3000/packs.json");
   const packs = await res.json();
 
