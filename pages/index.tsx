@@ -4,6 +4,14 @@ import styled from "styled-components";
 import { GetStaticProps } from "next";
 import Pluralize from "pluralize";
 
+// Fetch json
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch("http://localhost:3000/packs.json");
+  const packs = await res.json();
+
+  return { props: { packs } };
+};
+
 type Packs = {
   id: number;
   title: string;
@@ -64,14 +72,6 @@ export default function Home({ packs }: { packs: Packs[] }) {
     </div>
   );
 }
-
-// Fetch json
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/packs.json");
-  const packs = await res.json();
-
-  return { props: { packs } };
-};
 
 //Styled Components
 
