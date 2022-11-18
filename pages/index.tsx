@@ -1,11 +1,11 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Pluralize from "pluralize";
 
 // Fetch json
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch("http://localhost:3000/packs.json");
   const packs = await res.json();
 
