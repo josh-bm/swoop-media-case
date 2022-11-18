@@ -9,9 +9,9 @@ import Script from "next/script";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  <Script src="https://kit.fontawesome.com/b03f01c4af.js" />;
   return (
     <div className={myFont.className}>
+      <Script src="https://kit.fontawesome.com/b03f01c4af.js" />;
       <FlexBox>
         <section className="content">
           <Component {...pageProps} />
